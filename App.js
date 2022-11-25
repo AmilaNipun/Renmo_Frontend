@@ -1,9 +1,11 @@
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as eva from '@eva-design/eva';
-import {ApplicationProvider, IconRegistry} from '@ui-kitten/components';
-import {EvaIconsPack} from '@ui-kitten/eva-icons';
+import { ApplicationProvider, IconRegistry } from '@ui-kitten/components';
+import { EvaIconsPack } from '@ui-kitten/eva-icons';
+import { default as theme } from './src/assets/theme/theme.json';
+import { default as mapping } from './src/assets/theme/mapping.json';
 
 //views
 
@@ -15,18 +17,21 @@ import Starter from './src/screen/starter';
 import Signup from './src/screen/signup';
 import Login from './src/screen/login';
 import ForgotPassword from './src/screen/forgot password';
-import {StatusBar} from 'react-native';
+import { StatusBar } from 'react-native';
 
 const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
     <>
-      <IconRegistry icons={EvaIconsPack} />
-      <ApplicationProvider {...eva} theme={eva.light}>
+      <IconRegistry icons={[EvaIconsPack]} />
+      <ApplicationProvider
+        {...eva}
+        theme={{ ...eva.light, ...theme }}
+        customMapping={mapping}>
         <NavigationContainer>
           <StatusBar backgroundColor="#ffffff" barStyle="dark-content" />
-          <Stack.Navigator screenOptions={{headerShown: false}}>
+          <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen name="Starter" component={Starter} />
             <Stack.Screen name="OnboardingScreen" component={Onboarding} />
             <Stack.Screen name="Signup" component={Signup} />

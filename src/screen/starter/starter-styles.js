@@ -1,5 +1,5 @@
-import {StyleSheet} from 'react-native';
-import COLORS from '../../assets/const/colors';
+import { StyleSheet } from 'react-native';
+import COLORS from '../../assets/theme/colors';
 
 const styles = StyleSheet.create({
   container: {
@@ -7,9 +7,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.white,
   },
   app_header: {
-    fontFamily: 'SF-Pro-Display-Black',
     fontWeight: '900',
-    fontSize: 28,
     color: COLORS.dark_blue,
     textAlign: 'center',
     paddingBottom: 10,

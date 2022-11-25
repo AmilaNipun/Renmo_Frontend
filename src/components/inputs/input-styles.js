@@ -1,5 +1,5 @@
-import {StyleSheet} from 'react-native';
-import COLORS from '../../assets/const/colors';
+import { StyleSheet } from 'react-native';
+import COLORS from '../../assets/theme/colors';
 
 const styles = StyleSheet.create({
   defaultLabel: {
