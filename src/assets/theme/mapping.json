@@ -1,0 +1,23 @@
+{
+  "strict": {
+    "text-font-family": "SF-Pro-Display-Regular",
+
+    "text-heading-1-font-family": "SF-Pro-Display-Bold",
+    "text-heading-2-font-family": "SF-Pro-Display-Bold",
+    "text-heading-3-font-family": "SF-Pro-Display-Bold",
+    "text-heading-4-font-family": "SF-Pro-Display-Bold",
+    "text-heading-5-font-family": "SF-Pro-Display-Bold",
+    "text-heading-6-font-family": "SF-Pro-Display-Bold",
+
+    "text-subtitle-1-font-family": "SF-Pro-Display-Semibold",
+    "text-subtitle-2-font-family": "SF-Pro-Display-Semibold",
+
+    "text-paragraph-1-font-family": "SF-Pro-Display-Regular",
+    "text-paragraph-2-font-family": "SF-Pro-Display-Regular",
+
+    "text-caption-1-font-family": "SF-Pro-Display-Medium",
+    "text-caption-2-font-family": "SF-Pro-Display-Medium",
+
+    "text-label-font-family": "SF-Pro-Display-Bold"
+  }
+}
