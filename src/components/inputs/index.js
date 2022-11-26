@@ -1,56 +1,41 @@
 import React from 'react';
-import {TextInput, Text, View} from 'react-native';
+import { Layout, Text, Input } from '@ui-kitten/components';
 import styles from './input-styles';
 
 const CustomInputs = props => {
   return (
     <>
-      <View>
-        <Text
-          style={
-            props.classLabel === 'defaultLabel'
-              ? styles.defaultLabel
-              : props.classLabel === 'secondaryLabel'
-              ? styles.secondaryLabel
-              : null
-          }>
-          {props.label}
-        </Text>
-      </View>
-      <View
-        style={`
-                            ${
-                              props.classType === 'defaultTextBox' &&
-                              props.frontIcon &&
-                              props.backIcon
-                                ? styles.paddingTextBox
-                                : null
-                            }
-                            ${
-                              props.classType === 'defaultTextBox' &&
-                              props.frontIcon
-                                ? styles.paddingLeftTextBox
-                                : null
-                            }
-                        `}>
-        <TextInput
-          style={styles.textBox}
-          onChange={props.handleOnChange}
-          value={props.value}
+      <Layout>
+        <Input
           placeholder={props.placeholder}
-          keyboardType={props.type}
+          value={props.value}
+          autoCapitalize={props.autoCapitalize}
+          onChangeText={props.onChangeText}
+          onChange={props.onChange}
+          disabled={props.disabled}
+          status={props.status}
+          caption={props.caption}
+          secureTextEntry={props.secureTextEntry}
+          size={props.size}
+          multiline={props.multiline}
+          textStyle={props.textStyle}
+          accessoryLeft={props.iconLeft}
+          accessoryRight={props.iconRight}
+          style={
+            props.inputType == 'PRIMARY'
+              ? styles.textInputPrimary
+              : props.inputType == 'SECONDARY'
+                ? styles.textInputSecondary
+                : null
+          }
         />
-      </View>
 
-      {props.frontIcon && (
-        <View className={styles.frontIconContainer}>{props.frontIcon}</View>
-      )}
-      {props.backIcon && (
-        <View className={styles.backIconContainer}>{props.backIcon}</View>
-      )}
-      {props.errorMessage && (
-        <Text className={styles.errorMsg}>{props.errorMessage}</Text>
-      )}
+        {props.errorMessage && (
+          <Text className={styles.errorMsg} status={props.errorStatus}>
+            {props.errorMessage}
+          </Text>
+        )}
+      </Layout>
     </>
   );
 };

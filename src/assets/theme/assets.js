@@ -6,6 +6,7 @@ const ASSETS = {
   google: require('../images/icons/google_logo.png'),
   left_arrow: require('../images/icons/arrow-left.png'),
   mail: require('../images/icons/mail.png'),
+  app_logo: require('../images/app_logo.png'),
 };
 
 export default ASSETS;
