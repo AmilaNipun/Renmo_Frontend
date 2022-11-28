@@ -46,7 +46,7 @@ const Starter = ({ navigation }) => {
               Log in
             </Button>
           </Layout>
-          <Layout style={{ marginTop: 15 }}>
+          <Layout style={{ marginTop: 8, marginBottom: 8 }}>
             <CustomButton
               btnType="LIGHT"
               btnLabel="Sign up"
