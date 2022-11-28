@@ -7,6 +7,8 @@ const CustomInputs = props => {
     <>
       <Layout>
         <Input
+          label={props.label}
+          onFocus={props.onFocus}
           placeholder={props.placeholder}
           value={props.value}
           autoCapitalize={props.autoCapitalize}
@@ -21,6 +23,8 @@ const CustomInputs = props => {
           textStyle={props.textStyle}
           accessoryLeft={props.iconLeft}
           accessoryRight={props.iconRight}
+          onBlur={props.onBlur}
+          keyboardType={props.keyboardType}
           style={
             props.inputType == 'PRIMARY'
               ? styles.textInputPrimary
@@ -31,7 +35,7 @@ const CustomInputs = props => {
         />
 
         {props.errorMessage && (
-          <Text className={styles.errorMsg} status={props.errorStatus}>
+          <Text className={styles.errorMsg} status="danger">
             {props.errorMessage}
           </Text>
         )}

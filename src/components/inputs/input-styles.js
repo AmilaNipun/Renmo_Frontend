@@ -3,7 +3,8 @@ import COLORS from '../../assets/theme/colors';
 
 const styles = StyleSheet.create({
   textInputPrimary: {
-    borderRadius: 10,
+    borderRadius: 30,
+    borderWidth: 2,
   },
   textInputSecondary: {
     borderRadius: 10,

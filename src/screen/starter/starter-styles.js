@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import COLORS from '../../assets/theme/colors';
+import { StatusBar } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -7,11 +8,12 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.white,
   },
   detailsContainer: {
-    display: 'flex',
     flex: 1,
+    justifyContent: 'center',
+    alignContent: 'center',
     flexDirection: 'column',
-    paddingLeft: 9,
-    paddingRight: 9,
+    paddingTop: StatusBar.currentHeight,
+    paddingHorizontal: 9,
   },
   starterImageContainer: {
     flex: 3,
@@ -20,9 +22,6 @@ const styles = StyleSheet.create({
   },
   starterImage: {
     flex: 1,
-    // width: null,
-    // height: null,
-    // resizeMode: 'contain',
     width: '100%',
   },
   textContainer: {
