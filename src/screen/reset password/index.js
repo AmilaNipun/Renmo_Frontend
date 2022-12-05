@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styles from './reset-password-styles';
 import {
   SafeAreaView,
   ScrollView,
@@ -6,41 +7,39 @@ import {
   TouchableWithoutFeedback,
 } from 'react-native';
 import {
-  Button,
+  BackIconEva,
+  LockIconEva,
+  AlertIconEva,
+} from '../../assets/theme/icons';
+import {
   Icon,
+  Button,
   Layout,
   Text,
   TopNavigation,
   TopNavigationAction,
-  Divider,
 } from '@ui-kitten/components';
-import styles from './signup-styles';
 import * as yup from 'yup';
 import { Formik } from 'formik';
-import {
-  BackIconEva,
-  EmailIconEva,
-  LockIconEva,
-  PhoneIconEva,
-} from '../../assets/theme/icons';
 import CustomInputs from '../../components/inputs';
-import CustomButton from '../../components/buttons';
-import ASSETS from '../../assets/theme/assets';
 
-const Signup = ({ navigation }) => {
+const ResetPassword = ({ navigation }) => {
   const [state, setState] = useState({
     is_loading: false,
   });
   const [secureTextEntry, setSecureTextEntry] = useState(true);
+  const [secureTextEntryConfirm, setSecureTextEntryConfirm] = useState(true);
 
   const schema = yup.object({
-    email: yup.string().email('Invalid email').required('Required'),
     password: yup.string().min(8, 'Minimum length is 8').required('Required'),
-    phone: yup.number().min(9, 'Invalid Mobile Number').required('Required'),
+    repassword: yup
+      .string()
+      .oneOf([yup.ref('password'), null], "Password doesn't match"),
   });
 
   const onSubmit = async values => {
     console.log(values);
+    navigation.navigate('Login');
   };
 
   const BackAction = () => (
@@ -51,6 +50,17 @@ const Signup = ({ navigation }) => {
     />
   );
 
+  const renderCaption = () => {
+    return (
+      <View style={styles.captionContainer}>
+        {<AlertIconEva width={10} height={10} marginRight={5} />}
+        <Text style={styles.captionText}>
+          Should contain at least 8 symbols
+        </Text>
+      </View>
+    );
+  };
+
   const toggleSecureEntry = () => {
     setSecureTextEntry(!secureTextEntry);
   };
@@ -58,6 +68,16 @@ const Signup = ({ navigation }) => {
   const renderIcon = props => (
     <TouchableWithoutFeedback onPress={toggleSecureEntry}>
       <Icon {...props} name={secureTextEntry ? 'eye-off' : 'eye'} />
+    </TouchableWithoutFeedback>
+  );
+
+  const toggleSecureEntryConfirm = () => {
+    setSecureTextEntryConfirm(!secureTextEntryConfirm);
+  };
+
+  const renderIconConfirm = props => (
+    <TouchableWithoutFeedback onPress={toggleSecureEntryConfirm}>
+      <Icon {...props} name={secureTextEntryConfirm ? 'eye-off' : 'eye'} />
     </TouchableWithoutFeedback>
   );
 
@@ -70,17 +90,20 @@ const Signup = ({ navigation }) => {
         <ScrollView style={styles.scrollView}>
           <Layout style={styles.textContainer}>
             <Text category="h4" style={styles.app_sub_title}>
-              Let’s Explore Together!
+              Reset Your Password
             </Text>
             <Text category="s1" style={styles.app_sub_details}>
-              Create your Renmo account to explore renting around Australia!
+              Your identity has been verified!
+            </Text>
+            <Text category="s1" style={styles.app_sub_details}>
+              Set your new password
             </Text>
           </Layout>
           <Layout style={styles.formContainer}>
             <Formik
               validationSchema={schema}
               onSubmit={values => onSubmit(values)}
-              initialValues={{ email: '', password: '', phone: '' }}>
+              initialValues={{ password: '', repassword: '' }}>
               {({
                 errors,
                 handleChange,
@@ -90,30 +113,12 @@ const Signup = ({ navigation }) => {
                 values,
               }) => (
                 <>
-                  <Layout style={{ marginTop: 10 }}>
+                  <Layout style={{ marginTop: 40 }}>
                     <CustomInputs
-                      label="Email"
+                      label="New Password"
                       inputType="PRIMARY"
                       size="large"
-                      placeholder="Please Enter Email"
-                      iconLeft={EmailIconEva}
-                      onChangeText={handleChange('email')}
-                      onBlur={handleBlur('email')}
-                      value={values.email}
-                      errorMessage={
-                        submitCount > 0 && errors.email ? errors.email : null
-                      }
-                      status={
-                        submitCount > 0 && errors.email ? 'danger' : 'basic'
-                      }
-                    />
-                  </Layout>
-                  <Layout style={{ marginTop: 10 }}>
-                    <CustomInputs
-                      label="Password"
-                      inputType="PRIMARY"
-                      size="large"
-                      placeholder="Please Enter Password"
+                      placeholder="New Password"
                       iconLeft={LockIconEva}
                       onChangeText={handleChange('password')}
                       onBlur={handleBlur('password')}
@@ -123,6 +128,11 @@ const Signup = ({ navigation }) => {
                           ? errors.password
                           : null
                       }
+                      caption={
+                        submitCount > 0 && errors.password
+                          ? null
+                          : renderCaption
+                      }
                       iconRight={renderIcon}
                       secureTextEntry={secureTextEntry}
                       status={
@@ -130,27 +140,35 @@ const Signup = ({ navigation }) => {
                       }
                     />
                   </Layout>
-
-                  <Layout style={{ marginTop: 10 }}>
+                  <Layout style={{ marginTop: 40 }}>
                     <CustomInputs
-                      label="Phone Number"
+                      label="Confirm Password"
                       inputType="PRIMARY"
                       size="large"
-                      placeholder="Please Enter Mobile"
-                      iconLeft={PhoneIconEva}
-                      onChangeText={handleChange('phone')}
-                      onBlur={handleBlur('phone')}
-                      value={values.phone}
-                      keyboardType="phone-pad"
+                      placeholder="Confirm Password"
+                      iconLeft={LockIconEva}
+                      onChangeText={handleChange('repassword')}
+                      onBlur={handleBlur('repassword')}
+                      value={values.repassword}
                       errorMessage={
-                        submitCount > 0 && errors.phone ? errors.phone : null
+                        submitCount > 0 && errors.repassword
+                          ? errors.repassword
+                          : null
                       }
+                      caption={
+                        submitCount > 0 && errors.repassword
+                          ? null
+                          : renderCaption
+                      }
+                      iconRight={renderIconConfirm}
+                      secureTextEntry={secureTextEntryConfirm}
                       status={
-                        submitCount > 0 && errors.phone ? 'danger' : 'basic'
+                        submitCount > 0 && errors.repassword
+                          ? 'danger'
+                          : 'basic'
                       }
                     />
                   </Layout>
-
                   <Layout style={{ marginTop: 15 }}>
                     <Button
                       appearance="filled"
@@ -158,38 +176,12 @@ const Signup = ({ navigation }) => {
                       size="large"
                       style={styles.primaryBtnStyle}
                       onPress={handleSubmit}>
-                      Create account
+                      Update Password
                     </Button>
                   </Layout>
                 </>
               )}
             </Formik>
-            <Layout style={{ marginTop: 35 }}>
-              <Divider style={styles.divider} />
-              <View style={styles.mainContainerBox}>
-                <View style={styles.containerBox}>
-                  <Text style={styles.containerBoxLabel}>OR</Text>
-                </View>
-              </View>
-            </Layout>
-            <Layout style={styles.buttonContainer}>
-              <Layout>
-                <CustomButton
-                  btnType="DARK"
-                  btnLabel="Sign in with Apple"
-                  frontIcon={ASSETS.apple}
-                // onPress={() => navigation.navigate('Signup')}
-                />
-              </Layout>
-              <Layout style={{ marginTop: 8, marginBottom: 8 }}>
-                <CustomButton
-                  btnType="LIGHT"
-                  btnLabel="Sign in with Google"
-                  frontIcon={ASSETS.google}
-                // onPress={() => navigation.navigate('Signup')}
-                />
-              </Layout>
-            </Layout>
           </Layout>
         </ScrollView>
       </Layout>
@@ -197,4 +189,4 @@ const Signup = ({ navigation }) => {
   );
 };
 
-export default Signup;
+export default ResetPassword;

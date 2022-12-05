@@ -25,6 +25,8 @@ const CustomInputs = props => {
           accessoryRight={props.iconRight}
           onBlur={props.onBlur}
           keyboardType={props.keyboardType}
+          maxLength={props.maxLength}
+          ref={props.ref}
           style={
             props.inputType == 'PRIMARY'
               ? styles.textInputPrimary
