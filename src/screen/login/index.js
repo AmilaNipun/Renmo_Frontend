@@ -113,6 +113,7 @@ const Login = ({ navigation }) => {
                       onChangeText={handleChange('email')}
                       onBlur={handleBlur('email')}
                       value={values.email}
+                      placeholder="Please Enter Email"
                       errorMessage={
                         submitCount > 0 && errors.email ? errors.email : null
                       }
@@ -126,6 +127,7 @@ const Login = ({ navigation }) => {
                       label="Password"
                       inputType="PRIMARY"
                       size="large"
+                      placeholder="Please Enter Password"
                       iconLeft={LockIconEva}
                       onChangeText={handleChange('password')}
                       onBlur={handleBlur('password')}

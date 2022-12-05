@@ -18,6 +18,8 @@ import Signup from './src/screen/signup';
 import Login from './src/screen/login';
 import ForgotPassword from './src/screen/forgot password';
 import { StatusBar } from 'react-native';
+import Verification from './src/screen/verification';
+import ResetPassword from './src/screen/reset password';
 
 const Stack = createNativeStackNavigator();
 
@@ -37,6 +39,8 @@ const App = () => {
             <Stack.Screen name="Signup" component={Signup} />
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
+            <Stack.Screen name="Verification" component={Verification} />
+            <Stack.Screen name="ResetPassword" component={ResetPassword} />
           </Stack.Navigator>
         </NavigationContainer>
       </ApplicationProvider>

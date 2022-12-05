@@ -24,12 +24,13 @@ const ForgotPassword = ({ navigation }) => {
 
   const onSubmit = async values => {
     console.log(values);
+    navigation.push('Verification');
   };
 
   const BackAction = () => (
     <TopNavigationAction
       icon={BackIconEva}
-      onPress={() => navigation.navigate('Starter')}
+      onPress={() => navigation.goBack()}
       style={styles.backIcon}
     />
   );
@@ -52,7 +53,7 @@ const ForgotPassword = ({ navigation }) => {
           </Layout>
           <Layout style={styles.formContainer}>
             <Formik
-              validationSchema={schema}
+              // validationSchema={schema}
               onSubmit={values => onSubmit(values)}
               initialValues={{ email: '' }}>
               {({
@@ -69,6 +70,7 @@ const ForgotPassword = ({ navigation }) => {
                       label="Email"
                       inputType="PRIMARY"
                       size="large"
+                      placeholder="Please Enter Email"
                       iconLeft={EmailIconEva}
                       onChangeText={handleChange('email')}
                       onBlur={handleBlur('email')}
