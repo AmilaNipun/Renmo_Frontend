@@ -43,6 +43,7 @@ const Login = ({ navigation }) => {
 
   const onSubmit = async values => {
     console.log(values);
+    navigation.navigate('Main');
   };
 
   const BackAction = () => (
@@ -92,7 +93,7 @@ const Login = ({ navigation }) => {
           </Layout>
           <Layout style={styles.formContainer}>
             <Formik
-              validationSchema={schema}
+              // validationSchema={schema}
               onSubmit={values => onSubmit(values)}
               initialValues={{ email: '', password: '' }}>
               {({
