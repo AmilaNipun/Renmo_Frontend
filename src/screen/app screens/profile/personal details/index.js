@@ -1,97 +1,159 @@
+/* eslint-disable react-native/no-inline-styles */
+/* eslint-disable prettier/prettier */
 import React, { useState } from 'react';
 import {
-    SafeAreaView,
-    ScrollView,
-    View,
-    TouchableWithoutFeedback,
-    TouchableOpacity,
-} from 'react-native';
-import {
-    Avatar,
-    Button,
-    Icon,
     Layout,
     Text,
-    TopNavigation,
-    TopNavigationAction,
-    Divider,
-    Drawer,
-    DrawerItem,
+    Button,
 } from '@ui-kitten/components';
-import styles from './profile-styles';
-import ASSETS from '../../../assets/theme/assets';
+import styles from './personal-details-styles';
 import {
-    CardIconFillEva,
-    IosForwardIconEva,
-    PersonIconFillEva,
-    QuestionCircleIconFillEva,
-    ToggleLeftIconFillEva,
-} from '../../../assets/theme/icons';
+    ArrowBackIconEva,
+    EmailIconEva,
+    MapIconEva,
+    PersonIconEva,
+    PhoneIconEva,
+} from '../../../../assets/theme/icons';
+import * as yup from 'yup';
+import { Formik } from 'formik';
+import CustomInputs from '../../../../components/inputs';
 
-const ProfileScreen = ({ navigation }) => {
-    const [selectedIndex, setSelectedIndex] = useState(null);
-    const [userType, setUserType] = useState(null);
+const PersonalDetails = (props) => {
 
-    const changeUserType = () => { };
+    const schema = yup.object({
+        username: yup.string().required('Required'),
+        email: yup.string().email('Invalid email').required('Required'),
+        password: yup.string().min(8, 'Minimum length is 8').required('Required'),
+        phone: yup.number().min(9, 'Invalid Mobile Number').required('Required'),
+        location: yup.string().required('Required'),
+    });
+
+    const backToPrevious = () => {
+        props.setToDefaultView();
+    };
+
+    const onSubmit = (values) => {
+
+    };
 
     return (
         <>
-            <SafeAreaView style={styles.container}>
-                <ScrollView style={styles.scrollView}>
-                    <Layout style={styles.heroContainer}>
-                        <Avatar
-                            style={styles.avatar}
-                            size="giant"
-                            shape="round"
-                            source={ASSETS.avatar}
-                        />
-                        <Text style={styles.avatarName} category="h4">
-                            User Name
-                        </Text>
-                        <Text style={styles.avatarEmail} category="s1">
-                            lucybond08@gmail.com
-                        </Text>
-                    </Layout>
-                    <View style={styles.divider} />
-                    <Layout style={styles.settingsContainer}>
-                        <Drawer
-                            selectedIndex={selectedIndex}
-                            onSelect={index => setSelectedIndex(index)}>
-                            <DrawerItem
-                                title="Personal details"
-                                accessoryLeft={PersonIconFillEva}
-                                accessoryRight={IosForwardIconEva}
-                                style={styles.drawerItem}
-                            />
-                            <DrawerItem
-                                title="Payment details"
-                                accessoryLeft={CardIconFillEva}
-                                accessoryRight={IosForwardIconEva}
-                                style={styles.drawerItem}
-                            />
-                            <DrawerItem
-                                title="FAQ"
-                                accessoryLeft={QuestionCircleIconFillEva}
-                                accessoryRight={IosForwardIconEva}
-                                style={styles.drawerItem}
-                            />
-                        </Drawer>
-                    </Layout>
-                    <View style={styles.divider} />
-                    <Layout style={styles.switchContainer}>
-                        <Drawer
-                            onSelect={() => changeUserType()}>
-                            <DrawerItem
-                                title="Switch to hosting"
-                                accessoryLeft={ToggleLeftIconFillEva}
-                                accessoryRight={IosForwardIconEva}
-                            />
-                        </Drawer>
-                    </Layout>
-                </ScrollView>
-            </SafeAreaView>
+            <Layout style={styles.formContainer}>
+                <Text category="h6">
+                    Personal Details
+                </Text>
+                <Formik
+                    validationSchema={schema}
+                    onSubmit={values => onSubmit(values)}
+                    initialValues={{ username: '', email: '', phone: '', location: '' }}>
+                    {({
+                        errors,
+                        handleChange,
+                        handleBlur,
+                        handleSubmit,
+                        submitCount,
+                        values,
+                    }) => (
+                        <>
+                            <Layout style={{ marginTop: 10 }}>
+                                <CustomInputs
+                                    label="User Name"
+                                    inputType="PRIMARY"
+                                    size="large"
+                                    placeholder="Please Enter User Name"
+                                    iconLeft={PersonIconEva}
+                                    onChangeText={handleChange('username')}
+                                    onBlur={handleBlur('username')}
+                                    value={values.username}
+                                    errorMessage={
+                                        submitCount > 0 && errors.username ? errors.username : null
+                                    }
+                                    status={
+                                        submitCount > 0 && errors.username ? 'danger' : 'basic'
+                                    }
+                                />
+                            </Layout>
+                            <Layout style={{ marginTop: 10 }}>
+                                <CustomInputs
+                                    label="Email"
+                                    inputType="PRIMARY"
+                                    size="large"
+                                    placeholder="Please Enter Email"
+                                    iconLeft={EmailIconEva}
+                                    onChangeText={handleChange('email')}
+                                    onBlur={handleBlur('email')}
+                                    value={values.email}
+                                    errorMessage={
+                                        submitCount > 0 && errors.email ? errors.email : null
+                                    }
+                                    status={
+                                        submitCount > 0 && errors.email ? 'danger' : 'basic'
+                                    }
+                                />
+                            </Layout>
+                            <Layout style={{ marginTop: 10 }}>
+                                <CustomInputs
+                                    label="Phone Number"
+                                    inputType="PRIMARY"
+                                    size="large"
+                                    placeholder="Please Enter Mobile"
+                                    iconLeft={PhoneIconEva}
+                                    onChangeText={handleChange('phone')}
+                                    onBlur={handleBlur('phone')}
+                                    value={values.phone}
+                                    keyboardType="phone-pad"
+                                    errorMessage={
+                                        submitCount > 0 && errors.phone ? errors.phone : null
+                                    }
+                                    status={
+                                        submitCount > 0 && errors.phone ? 'danger' : 'basic'
+                                    }
+                                />
+                            </Layout>
+                            <Layout style={{ marginTop: 10 }}>
+                                <CustomInputs
+                                    label="Location"
+                                    inputType="PRIMARY"
+                                    size="large"
+                                    placeholder="Please Enter Your Location"
+                                    iconLeft={MapIconEva}
+                                    onChangeText={handleChange('location')}
+                                    onBlur={handleBlur('location')}
+                                    value={values.location}
+                                    errorMessage={
+                                        submitCount > 0 && errors.location ? errors.location : null
+                                    }
+                                    status={
+                                        submitCount > 0 && errors.location ? 'danger' : 'basic'
+                                    }
+                                />
+                            </Layout>
+                            <Layout style={styles.btnContainer}>
+                                <Button
+                                    appearance="ghost"
+                                    status="primary"
+                                    size="large"
+                                    style={styles.cancelBtn}
+                                    accessoryLeft={ArrowBackIconEva}
+                                    onPress={backToPrevious}>
+                                    Cancel
+                                </Button>
+                                <Button
+                                    appearance="filled"
+                                    status="primary"
+                                    size="large"
+                                    style={styles.updateBtn}
+                                    onPress={handleSubmit}>
+                                    Update
+                                </Button>
+                            </Layout>
+                        </>
+                    )}
+                </Formik>
+            </Layout>
+
         </>
     );
 };
 
-export default ProfileScreen;
+export default PersonalDetails;
