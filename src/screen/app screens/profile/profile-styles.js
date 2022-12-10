@@ -1,8 +1,9 @@
+/* eslint-disable prettier/prettier */
 import { StyleSheet } from 'react-native';
 import COLORS from '../../../assets/theme/colors';
 
 const styles = StyleSheet.create({
-    container: {
+    mainContainer: {
         flex: 1,
         backgroundColor: COLORS.white,
     },
@@ -21,7 +22,7 @@ const styles = StyleSheet.create({
     },
     avatar: {
         width: 80,
-        height: 80
+        height: 80,
     },
     avatarName: {
         marginTop: 20,
@@ -37,7 +38,7 @@ const styles = StyleSheet.create({
         borderBottomWidth: StyleSheet.hairlineWidth,
         marginVertical: 10,
     },
-    settingsContainer: {
+    bodyContainer: {
         flex: 1,
         flexDirection: 'column',
         paddingVertical: 25,
@@ -47,10 +48,23 @@ const styles = StyleSheet.create({
         fontSize: 15,
         fontWeight: '900',
     },
-    switchContainer: {
+    selectedDrawerItem: {
+        backgroundColor: '#ecf0fc',
+        borderLeftWidth: 4,
+        borderLeftColor: '#1a2650',
+    },
+    defaultTitle: {
         flex: 1,
-        flexDirection: 'column',
-        paddingVertical: 25,
+        position: 'relative',
+        textAlign: 'left',
+        marginLeft: 3,
+    },
+    selectedTitle: {
+        flex: 1,
+        position: 'relative',
+        color: '#1a2650',
+        textAlign: 'left',
+        marginLeft: 3,
     },
 });
 

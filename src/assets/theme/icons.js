@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import { Icon } from '@ui-kitten/components';
@@ -33,6 +34,11 @@ export const IosForwardIconEva = props => (
     <Icon {...props} name="arrow-ios-forward-outline" />
 );
 
+export const MapIconEva = props => <Icon {...props} name="map-outline" />;
+
+export const ArrowBackIconEva = props => <Icon {...props} name="arrow-back-outline" />;
+
+//Fill Icons
 export const PersonIconFillEva = props => <Icon {...props} name="person" />;
 
 export const CardIconFillEva = props => <Icon {...props} name="credit-card" />;
@@ -44,3 +50,7 @@ export const QuestionCircleIconFillEva = props => (
 export const ToggleLeftIconFillEva = props => (
     <Icon {...props} name="toggle-left" />
 );
+
+export const SettingsIconFillEva = props => <Icon {...props} name="settings" />;
+
+export const LockIconFillEva = props => <Icon {...props} name="lock" />;

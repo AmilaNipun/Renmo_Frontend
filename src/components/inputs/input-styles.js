@@ -9,6 +9,11 @@ const styles = StyleSheet.create({
   textInputSecondary: {
     borderRadius: 10,
   },
+  errorMsg: {
+    fontSize: 12,
+    marginLeft: 15,
+    marginTop: 5,
+  },
 });
 
 export default styles;

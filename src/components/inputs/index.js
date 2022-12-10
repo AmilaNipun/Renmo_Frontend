@@ -37,7 +37,7 @@ const CustomInputs = props => {
         />
 
         {props.errorMessage && (
-          <Text className={styles.errorMsg} status="danger">
+          <Text style={styles.errorMsg} status="danger">
             {props.errorMessage}
           </Text>
         )}

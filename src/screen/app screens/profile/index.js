@@ -1,42 +1,44 @@
+/* eslint-disable prettier/prettier */
 import React, { useState } from 'react';
 import {
     SafeAreaView,
     ScrollView,
     View,
-    TouchableWithoutFeedback,
-    TouchableOpacity,
 } from 'react-native';
 import {
     Avatar,
-    Button,
-    Icon,
     Layout,
     Text,
-    TopNavigation,
-    TopNavigationAction,
-    Divider,
-    Drawer,
     DrawerItem,
+    DrawerGroup,
 } from '@ui-kitten/components';
 import styles from './profile-styles';
 import ASSETS from '../../../assets/theme/assets';
 import {
     CardIconFillEva,
     IosForwardIconEva,
+    LockIconFillEva,
     PersonIconFillEva,
     QuestionCircleIconFillEva,
+    SettingsIconFillEva,
     ToggleLeftIconFillEva,
 } from '../../../assets/theme/icons';
+import PersonalDetails from './personal details';
+import ChangePassword from './change password';
 
 const ProfileScreen = ({ navigation }) => {
-    const [selectedIndex, setSelectedIndex] = useState(null);
-    const [userType, setUserType] = useState(null);
+    const [viewScreen, setViewScreen] = useState(0);
+    const [activeDrawer, setActiveDrawer] = useState(null);
 
     const changeUserType = () => { };
 
+    const setToDefaultView = () => {
+        setViewScreen(0);
+    };
+
     return (
         <>
-            <SafeAreaView style={styles.container}>
+            <SafeAreaView style={styles.mainContainer}>
                 <ScrollView style={styles.scrollView}>
                     <Layout style={styles.heroContainer}>
                         <Avatar
@@ -53,41 +55,71 @@ const ProfileScreen = ({ navigation }) => {
                         </Text>
                     </Layout>
                     <View style={styles.divider} />
-                    <Layout style={styles.settingsContainer}>
-                        <Drawer
-                            selectedIndex={selectedIndex}
-                            onSelect={index => setSelectedIndex(index)}>
-                            <DrawerItem
-                                title="Personal details"
-                                accessoryLeft={PersonIconFillEva}
-                                accessoryRight={IosForwardIconEva}
-                                style={styles.drawerItem}
-                            />
-                            <DrawerItem
-                                title="Payment details"
-                                accessoryLeft={CardIconFillEva}
-                                accessoryRight={IosForwardIconEva}
-                                style={styles.drawerItem}
-                            />
-                            <DrawerItem
-                                title="FAQ"
-                                accessoryLeft={QuestionCircleIconFillEva}
-                                accessoryRight={IosForwardIconEva}
-                                style={styles.drawerItem}
-                            />
-                        </Drawer>
-                    </Layout>
-                    <View style={styles.divider} />
-                    <Layout style={styles.switchContainer}>
-                        <Drawer
-                            onSelect={() => changeUserType()}>
-                            <DrawerItem
-                                title="Switch to hosting"
-                                accessoryLeft={ToggleLeftIconFillEva}
-                                accessoryRight={IosForwardIconEva}
-                            />
-                        </Drawer>
-                    </Layout>
+                    {viewScreen === 0 ? (
+                        <>
+                            <Layout style={styles.bodyContainer}>
+                                <DrawerItem
+                                    title={activeDrawer === 1 ? () => <Text category="s1" style={styles.selectedTitle}>Personal Details</Text> : () => <Text category="s1" style={styles.selectedTitle}>Personal Details</Text>}
+                                    accessoryLeft={activeDrawer === 1 ? <PersonIconFillEva fill="#1a2650" /> : PersonIconFillEva}
+                                    accessoryRight={activeDrawer === 1 ? <IosForwardIconEva fill="#1a2650" /> : IosForwardIconEva}
+                                    style={activeDrawer === 1 ? styles.selectedDrawerItem : styles.drawerItem}
+                                    onPress={() => { setViewScreen(1); setActiveDrawer(1); }}
+                                />
+                                <DrawerGroup
+                                    title={(activeDrawer === 2 || activeDrawer === 3) ? () => <Text category="s1" style={styles.selectedTitle}>Settings</Text> : () => <Text category="s1" style={styles.selectedTitle}>Settings</Text>}
+                                    accessoryLeft={(activeDrawer === 2 || activeDrawer === 3) ? <SettingsIconFillEva fill="#1a2650" /> : SettingsIconFillEva}
+                                    accessoryRight={(activeDrawer === 2 || activeDrawer === 3) ? <IosForwardIconEva fill="#1a2650" /> : IosForwardIconEva}
+                                    style={(activeDrawer === 2 || activeDrawer === 3) ? styles.selectedDrawerItem : styles.drawerItem}
+                                    onPress={() => setActiveDrawer(2)}>
+                                    <DrawerItem
+                                        title={activeDrawer === 3 ? () => <Text category="s1" style={styles.selectedTitle}>Change Password</Text> : () => <Text category="s1" style={styles.selectedTitle}>Change Password</Text>}
+                                        accessoryLeft={activeDrawer === 3 ? <LockIconFillEva fill="#1a2650" /> : LockIconFillEva}
+                                        accessoryRight={activeDrawer === 3 ? <IosForwardIconEva fill="#1a2650" /> : IosForwardIconEva}
+                                        style={activeDrawer === 3 ? styles.selectedDrawerItem : styles.drawerItem}
+                                        onPress={() => { setViewScreen(2); setActiveDrawer(3); }}
+                                    />
+                                </DrawerGroup>
+                                <DrawerItem
+                                    title={activeDrawer === 4 ? () => <Text category="s1" style={styles.selectedTitle}>Payment Details</Text> : () => <Text category="s1" style={styles.selectedTitle}>Payment Details</Text>}
+                                    accessoryLeft={activeDrawer === 4 ? <CardIconFillEva fill="#1a2650" /> : CardIconFillEva}
+                                    accessoryRight={activeDrawer === 4 ? <IosForwardIconEva fill="#1a2650" /> : IosForwardIconEva}
+                                    style={activeDrawer === 4 ? styles.selectedDrawerItem : styles.drawerItem}
+                                    onPress={() => { setActiveDrawer(4); }}
+                                />
+                                <DrawerItem
+                                    title={activeDrawer === 5 ? () => <Text category="s1" style={styles.selectedTitle}>FAQ</Text> : () => <Text category="s1" style={styles.selectedTitle}>FAQ</Text>}
+                                    accessoryLeft={activeDrawer === 5 ? <QuestionCircleIconFillEva fill="#1a2650" /> : QuestionCircleIconFillEva}
+                                    accessoryRight={activeDrawer === 5 ? <IosForwardIconEva fill="#1a2650" /> : IosForwardIconEva}
+                                    style={activeDrawer === 5 ? styles.selectedDrawerItem : styles.drawerItem}
+                                    onPress={() => { setActiveDrawer(5); }}
+                                />
+                            </Layout>
+                            <View style={styles.divider} />
+                            <Layout style={styles.bodyContainer}>
+                                <DrawerItem
+                                    title={() => <Text category="s1" style={styles.selectedTitle}>Switch To Hosting</Text>}
+                                    accessoryLeft={ToggleLeftIconFillEva}
+                                    accessoryRight={IosForwardIconEva}
+                                />
+                            </Layout>
+                        </>
+                    ) : viewScreen === 1 ? (
+                        <>
+                            <Layout style={styles.bodyContainer}>
+                                <PersonalDetails setToDefaultView={setToDefaultView} />
+                            </Layout>
+                        </>
+                    ) : viewScreen === 2 ? (
+                        <>
+                            <Layout style={styles.bodyContainer}>
+                                <ChangePassword setToDefaultView={setToDefaultView} />
+                            </Layout>
+                        </>
+                    ) : viewScreen === 3 ? (
+                        <></>
+                    ) : viewScreen === 4 ? (
+                        <></>
+                    ) : null}
                 </ScrollView>
             </SafeAreaView>
         </>

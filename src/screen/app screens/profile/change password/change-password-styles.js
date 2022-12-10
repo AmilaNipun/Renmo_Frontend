@@ -21,6 +21,15 @@ const styles = StyleSheet.create({
         borderRadius: 30,
         minWidth: 100,
     },
+    captionContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    captionText: {
+        fontSize: 12,
+        color: '#8F9BB3',
+    },
 });
 
 export default styles;
