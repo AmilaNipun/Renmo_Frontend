@@ -28,7 +28,7 @@ import ChangePassword from './change password';
 
 const ProfileScreen = ({ navigation }) => {
     const [viewScreen, setViewScreen] = useState(0);
-    const [activeDrawer, setActiveDrawer] = useState(null);
+    const [activeDrawer, setActiveDrawer] = useState(1);
 
     const changeUserType = () => { };
 
