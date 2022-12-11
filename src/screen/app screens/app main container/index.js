@@ -3,19 +3,17 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { BottomNavigation, BottomNavigationTab } from '@ui-kitten/components';
 
 //views
-import HomeScreen from '../home';
-import BookedScreen from '../booked';
-import SavedScreen from '../saved';
+import HomeScreen from '../client/home';
+import BookedScreen from '../client/booked';
+import SavedScreen from '../client/saved';
 import ProfileScreen from '../profile';
-import ListingScreen from '../listing';
 import {
   BookIconEva,
   HeartIconEva,
   HomeIconEva,
-  ListIconEva,
   PersonIconEva,
 } from '../../../assets/theme/icons';
-import { StatusBar } from 'react-native';
+import styles from './app-main-container-styles';
 
 const { Navigator, Screen } = createBottomTabNavigator();
 
@@ -23,6 +21,7 @@ const BottomTabBar = ({ navigation, state }) => (
   <BottomNavigation
     appearance="noIndicator"
     selectedIndex={state.index}
+    style={styles.bottomNav}
     onSelect={index => navigation.navigate(state.routeNames[index])}>
     <BottomNavigationTab title="Home" icon={HomeIconEva} />
     <BottomNavigationTab title="Booked" icon={BookIconEva} />
@@ -31,7 +30,7 @@ const BottomTabBar = ({ navigation, state }) => (
   </BottomNavigation>
 );
 
-const AppMainContainer = ({ navigation }) => {
+const AppMainContainer = () => {
   return (
     <>
       <Navigator

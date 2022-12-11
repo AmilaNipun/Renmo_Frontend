@@ -38,6 +38,9 @@ export const MapIconEva = props => <Icon {...props} name="map-outline" />;
 
 export const ArrowBackIconEva = props => <Icon {...props} name="arrow-back-outline" />;
 
+export const SearchIconEva = props => <Icon {...props} name="search-outline" />;
+
+
 //Fill Icons
 export const PersonIconFillEva = props => <Icon {...props} name="person" />;
 
@@ -54,3 +57,9 @@ export const ToggleLeftIconFillEva = props => (
 export const SettingsIconFillEva = props => <Icon {...props} name="settings" />;
 
 export const LockIconFillEva = props => <Icon {...props} name="lock" />;
+
+export const StarIconFillEva = props => <Icon {...props} name="star" />;
+
+export const PinIconFillEva = props => <Icon {...props} name="pin" />;
+
+export const HeartIconFillEva = props => <Icon {...props} name="heart" />;
