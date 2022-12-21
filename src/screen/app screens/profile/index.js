@@ -16,6 +16,7 @@ import styles from './profile-styles';
 import ASSETS from '../../../assets/theme/assets';
 import {
     CardIconFillEva,
+    FileTextIconFillEva,
     IosForwardIconEva,
     LockIconFillEva,
     PersonIconFillEva,
@@ -29,6 +30,7 @@ import ChangePassword from './change password';
 const ProfileScreen = ({ navigation }) => {
     const [viewScreen, setViewScreen] = useState(0);
     const [activeDrawer, setActiveDrawer] = useState(1);
+    const [userRole, setuserRole] = useState(0);
 
     const changeUserType = () => { };
 
@@ -93,6 +95,22 @@ const ProfileScreen = ({ navigation }) => {
                                     style={activeDrawer === 5 ? styles.selectedDrawerItem : styles.drawerItem}
                                     onPress={() => { setActiveDrawer(5); }}
                                 />
+                                {userRole === 1 &&
+                                    <DrawerGroup
+                                        title={(activeDrawer === 6 || activeDrawer === 7) ? () => <Text category="s1" style={styles.selectedTitle}>Reports</Text> : () => <Text category="s1" style={styles.selectedTitle}>Reports</Text>}
+                                        accessoryLeft={(activeDrawer === 6 || activeDrawer === 7) ? <FileTextIconFillEva fill="#1a2650" /> : FileTextIconFillEva}
+                                        accessoryRight={(activeDrawer === 6 || activeDrawer === 7) ? <IosForwardIconEva fill="#1a2650" /> : IosForwardIconEva}
+                                        style={(activeDrawer === 6 || activeDrawer === 7) ? styles.selectedDrawerItem : styles.drawerItem}
+                                        onPress={() => setActiveDrawer(6)}>
+                                        <DrawerItem
+                                            title={activeDrawer === 7 ? () => <Text category="s1" style={styles.selectedTitle}>Income Report</Text> : () => <Text category="s1" style={styles.selectedTitle}>Income Report</Text>}
+                                            accessoryLeft={activeDrawer === 7 ? <FileTextIconFillEva fill="#1a2650" /> : FileTextIconFillEva}
+                                            accessoryRight={activeDrawer === 7 ? <IosForwardIconEva fill="#1a2650" /> : IosForwardIconEva}
+                                            style={activeDrawer === 7 ? styles.selectedDrawerItem : styles.drawerItem}
+                                            onPress={() => { setViewScreen(6); setActiveDrawer(7); }}
+                                        />
+                                    </DrawerGroup>
+                                }
                             </Layout>
                             <View style={styles.divider} />
                             <Layout style={styles.bodyContainer}>

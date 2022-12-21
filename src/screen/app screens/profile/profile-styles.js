@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
         paddingVertical: 25,
+        marginBottom: 25,
     },
     drawerItem: {
         marginVertical: 5,

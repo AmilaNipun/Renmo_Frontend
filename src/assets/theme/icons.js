@@ -40,6 +40,10 @@ export const ArrowBackIconEva = props => <Icon {...props} name="arrow-back-outli
 
 export const SearchIconEva = props => <Icon {...props} name="search-outline" />;
 
+export const PlusCircleOutlineIconEva = props => <Icon {...props} name="plus-circle-outline" />;
+
+export const PersonDoneOutlineIconEva = props => <Icon {...props} name="person-done-outline" />;
+
 
 //Fill Icons
 export const PersonIconFillEva = props => <Icon {...props} name="person" />;
@@ -63,3 +67,7 @@ export const StarIconFillEva = props => <Icon {...props} name="star" />;
 export const PinIconFillEva = props => <Icon {...props} name="pin" />;
 
 export const HeartIconFillEva = props => <Icon {...props} name="heart" />;
+
+export const FileTextIconFillEva = props => <Icon {...props} name="file-text" />;
+
+
