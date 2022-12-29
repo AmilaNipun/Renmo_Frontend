@@ -25,7 +25,7 @@ const BookedScreen = ({ navigation }) => {
     return (
         <>
             <SafeAreaView style={styles.mainContainer}>
-                <TopNavigation title={renderTitle} />
+                <TopNavigation title={renderTitle} style={styles.topNavigationStyles} />
                 <View style={styles.divider} />
                 <Layout style={styles.bodyContainer}>
                     <CustomItemCard />

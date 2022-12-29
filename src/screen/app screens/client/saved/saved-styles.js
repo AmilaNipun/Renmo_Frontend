@@ -5,7 +5,10 @@ import COLORS from '../../../../assets/theme/colors';
 const styles = StyleSheet.create({
     mainContainer: {
         flex: 1,
-        backgroundColor: COLORS.white,
+        backgroundColor: COLORS.reguar_white,
+    },
+    topNavigationStyles: {
+        backgroundColor: COLORS.reguar_white,
     },
     titleContainer: {
         flex: 1,
@@ -21,6 +24,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         paddingVertical: 5,
         marginHorizontal: 15,
+        backgroundColor: COLORS.reguar_white,
     },
 });
 

@@ -5,7 +5,7 @@ import COLORS from '../../../assets/theme/colors';
 const styles = StyleSheet.create({
     mainContainer: {
         flex: 1,
-        backgroundColor: COLORS.white,
+        backgroundColor: COLORS.reguar_white,
     },
     scrollView: {
         marginHorizontal: 15,
@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
         flexWrap: 'wrap',
         paddingHorizontal: 20,
         paddingVertical: 25,
+        backgroundColor: COLORS.reguar_white,
     },
     avatar: {
         width: 80,
@@ -43,11 +44,13 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         paddingVertical: 25,
         marginBottom: 25,
+        backgroundColor: COLORS.reguar_white,
     },
     drawerItem: {
         marginVertical: 5,
         fontSize: 15,
         fontWeight: '900',
+        backgroundColor: COLORS.reguar_white,
     },
     selectedDrawerItem: {
         backgroundColor: '#ecf0fc',

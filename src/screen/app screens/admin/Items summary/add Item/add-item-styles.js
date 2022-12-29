@@ -1,21 +1,27 @@
 /* eslint-disable prettier/prettier */
-import { StyleSheet } from 'react-native';
-import COLORS from '../../assets/theme/colors';
-import { StatusBar } from 'react-native';
+import { StyleSheet, StatusBar } from 'react-native';
+import COLORS from '../../../../assets/theme/colors';
 
 const styles = StyleSheet.create({
-    backIcon: {
-        width: 35,
-        height: 35,
-        marginLeft: 0,
-        padding: 0,
-    },
     container: {
         flex: 1,
         backgroundColor: COLORS.reguar_white,
     },
-    topNavigationStyles: {
-        backgroundColor: COLORS.reguar_white,
+    divider: {
+        borderBottomColor: COLORS.neutral_grey,
+        borderBottomWidth: StyleSheet.hairlineWidth,
+        marginVertical: 10,
+    },
+    titleContainer: {
+        flex: 1,
+        marginHorizontal: 15,
+        justifyContent: 'center',
+    },
+    fullTitleContainer: {
+        flex: 1,
+        marginHorizontal: 15,
+        justifyContent: 'center',
+        width: '90%',
     },
     bodyContentContainer: {
         flex: 1,
@@ -23,7 +29,6 @@ const styles = StyleSheet.create({
         alignContent: 'center',
         flexDirection: 'column',
         paddingTop: StatusBar.currentHeight,
-        backgroundColor: COLORS.reguar_white,
     },
     scrollView: {
         marginHorizontal: 15,
@@ -31,11 +36,9 @@ const styles = StyleSheet.create({
     textContainer: {
         flex: 1,
         flexDirection: 'column',
-        backgroundColor: COLORS.reguar_white,
     },
     formContainer: {
         flex: 1,
-        backgroundColor: COLORS.reguar_white,
     },
     app_sub_title: {
         textAlign: 'left',
@@ -56,10 +59,6 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-    },
-    divider: {
-        borderWidth: 1,
-        borderColor: '#9BA4B4',
     },
     mainContainerBox: {
         marginTop: -18,
@@ -84,7 +83,6 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         alignContent: 'center',
         justifyContent: 'flex-start',
-        backgroundColor: COLORS.reguar_white,
     },
 });
 

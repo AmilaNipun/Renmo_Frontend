@@ -17,11 +17,9 @@ import HomeScreen from '../client/home';
 import BookedScreen from '../client/booked';
 import SavedScreen from '../client/saved';
 import ProfileScreen from '../profile';
-import ListItemScreen from '../admin/list item';
 import BookingsScreen from '../admin/bookings';
-import ListedItemsScreen from '../admin/listed items';
+import ItemsSummaryScreen from '../admin/Items summary';
 import ReviewScreen from '../admin/review license & id';
-
 
 const { Navigator, Screen } = createBottomTabNavigator();
 
@@ -44,7 +42,6 @@ const AdminBottomTabBar = ({ navigation, state }) => (
     selectedIndex={state.index}
     style={styles.bottomNav}
     onSelect={index => navigation.navigate(state.routeNames[index])}>
-    <BottomNavigationTab title="List Item" icon={PlusCircleOutlineIconEva} />
     <BottomNavigationTab title="Listed" icon={ListIconEva} />
     <BottomNavigationTab title="Bookings" icon={BookIconEva} />
     <BottomNavigationTab title="Review" icon={PersonDoneOutlineIconEva} />
@@ -74,13 +71,12 @@ const AppMainContainer = () => {
         userRole === 1 && (
           <>
             <Navigator
-              initialRouteName="ListItem"
+              initialRouteName="Listed"
               screenOptions={{ headerShown: false }}
               tabBar={props => (
                 <AdminBottomTabBar userRole={userRole} {...props} />
               )}>
-              <Screen name="List Item" component={ListItemScreen} />
-              <Screen name="Listed" component={ListedItemsScreen} />
+              <Screen name="Listed" component={ItemsSummaryScreen} />
               <Screen name="Bookings" component={BookingsScreen} />
               <Screen name="Review" component={ReviewScreen} />
               <Screen name="Profile" component={ProfileScreen} />

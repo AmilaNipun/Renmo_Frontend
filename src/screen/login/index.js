@@ -29,6 +29,7 @@ import { ArrowLeft2 } from 'iconsax-react-native';
 import * as yup from 'yup';
 import { Formik } from 'formik';
 import CustomInputs from '../../components/inputs';
+import COLORS from '../../assets/theme/colors';
 
 const Login = ({ navigation }) => {
   const [state, setState] = useState({
@@ -78,9 +79,10 @@ const Login = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Layout>
-        <TopNavigation accessoryLeft={BackAction} />
-      </Layout>
+      <TopNavigation
+        accessoryLeft={BackAction}
+        style={styles.topNavigationStyles}
+      />
       <Layout style={styles.bodyContentContainer}>
         <ScrollView style={styles.scrollView}>
           <Layout style={styles.textContainer}>
@@ -151,7 +153,11 @@ const Login = ({ navigation }) => {
                     />
                   </Layout>
 
-                  <Layout style={{ marginTop: 15 }}>
+                  <Layout
+                    style={{
+                      marginTop: 15,
+                      backgroundColor: COLORS.reguar_white,
+                    }}>
                     <Button
                       appearance="filled"
                       status="primary"
@@ -171,7 +177,8 @@ const Login = ({ navigation }) => {
                 </>
               )}
             </Formik>
-            <Layout style={{ marginTop: 35 }}>
+            <Layout
+              style={{ marginTop: 35, backgroundColor: COLORS.reguar_white }}>
               <Divider style={styles.divider} />
               <View style={styles.mainContainerBox}>
                 <View style={styles.containerBox}>
@@ -180,7 +187,10 @@ const Login = ({ navigation }) => {
               </View>
             </Layout>
             <Layout style={styles.buttonContainer}>
-              <Layout>
+              <Layout
+                style={{
+                  backgroundColor: COLORS.reguar_white,
+                }}>
                 <CustomButton
                   btnType="DARK"
                   btnLabel="Sign in with Apple"
@@ -188,7 +198,12 @@ const Login = ({ navigation }) => {
                 // onPress={() => navigation.navigate('Signup')}
                 />
               </Layout>
-              <Layout style={{ marginTop: 8, marginBottom: 8 }}>
+              <Layout
+                style={{
+                  marginTop: 8,
+                  marginBottom: 8,
+                  backgroundColor: COLORS.reguar_white,
+                }}>
                 <CustomButton
                   btnType="LIGHT"
                   btnLabel="Sign in with Google"

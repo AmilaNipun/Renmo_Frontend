@@ -1,20 +1,30 @@
-import { StyleSheet } from 'react-native';
-import COLORS from '../../assets/theme/colors';
-import { StatusBar } from 'react-native';
+/* eslint-disable prettier/prettier */
+import { StyleSheet, StatusBar } from 'react-native';
+import COLORS from '../../../../assets/theme/colors';
 
 const styles = StyleSheet.create({
-  backIcon: {
-    width: 35,
-    height: 35,
-    marginLeft: 0,
-    padding: 0,
-  },
   container: {
     flex: 1,
     backgroundColor: COLORS.reguar_white,
   },
   topNavigationStyles: {
     backgroundColor: COLORS.reguar_white,
+  },
+  divider: {
+    borderBottomColor: COLORS.neutral_grey,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    marginVertical: 10,
+  },
+  titleContainer: {
+    flex: 1,
+    marginHorizontal: 15,
+    justifyContent: 'center',
+  },
+  fullTitleContainer: {
+    flex: 1,
+    marginHorizontal: 15,
+    justifyContent: 'center',
+    width: '90%',
   },
   bodyContentContainer: {
     flex: 1,
@@ -30,11 +40,24 @@ const styles = StyleSheet.create({
   textContainer: {
     flex: 1,
     flexDirection: 'column',
-    backgroundColor: COLORS.reguar_white,
+  },
+  contentContainer: {
+    flex: 1,
+    alignItems: 'center',
   },
   formContainer: {
     flex: 1,
-    backgroundColor: COLORS.reguar_white,
+  },
+  bottomSheetStyles: {
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 12,
+    },
+    shadowOpacity: 0.58,
+    shadowRadius: 16.00,
+
+    elevation: 24,
   },
   app_sub_title: {
     textAlign: 'left',
@@ -55,17 +78,6 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-  },
-  linkLabel: {
-    fontSize: 16,
-    color: COLORS.nav_grey,
-    fontWeight: '900',
-    textAlign: 'center',
-    marginTop: 10,
-  },
-  divider: {
-    borderWidth: 1,
-    borderColor: '#9BA4B4',
   },
   mainContainerBox: {
     marginTop: -18,
@@ -90,7 +102,6 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignContent: 'center',
     justifyContent: 'flex-start',
-    backgroundColor: COLORS.reguar_white,
   },
 });
 

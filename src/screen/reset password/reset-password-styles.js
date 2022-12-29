@@ -12,7 +12,10 @@ const styles = StyleSheet.create({
     },
     container: {
         flex: 1,
-        backgroundColor: COLORS.white,
+        backgroundColor: COLORS.reguar_white,
+    },
+    topNavigationStyles: {
+        backgroundColor: COLORS.reguar_white,
     },
     bodyContentContainer: {
         flex: 1,
@@ -20,6 +23,7 @@ const styles = StyleSheet.create({
         alignContent: 'center',
         flexDirection: 'column',
         paddingTop: StatusBar.currentHeight,
+        backgroundColor: COLORS.reguar_white,
     },
     scrollView: {
         marginHorizontal: 15,
@@ -27,9 +31,11 @@ const styles = StyleSheet.create({
     textContainer: {
         flex: 1,
         flexDirection: 'column',
+        backgroundColor: COLORS.reguar_white,
     },
     formContainer: {
         flex: 1,
+        backgroundColor: COLORS.reguar_white,
     },
     app_sub_title: {
         textAlign: 'left',

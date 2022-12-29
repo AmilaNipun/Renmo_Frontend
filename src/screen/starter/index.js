@@ -6,6 +6,7 @@ import CustomButton from '../../components/buttons';
 import ASSETS from '../../assets/theme/assets';
 import styles from './starter-styles';
 import { Button } from '@ui-kitten/components';
+import COLORS from '../../assets/theme/colors';
 
 const Starter = ({ navigation }) => {
   const renderTitle = props => (
@@ -16,9 +17,11 @@ const Starter = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Layout>
-        <TopNavigation alignment="center" title={renderTitle} />
-      </Layout>
+      <TopNavigation
+        style={styles.topNavigationStyles}
+        alignment="center"
+        title={renderTitle}
+      />
       <Layout style={styles.detailsContainer}>
         <Layout style={styles.starterImageContainer}>
           <Image
@@ -36,7 +39,10 @@ const Starter = ({ navigation }) => {
           </Text>
         </Layout>
         <Layout style={styles.buttonContainer}>
-          <Layout>
+          <Layout
+            style={{
+              backgroundColor: COLORS.reguar_white,
+            }}>
             <Button
               appearance="filled"
               status="primary"
@@ -46,7 +52,12 @@ const Starter = ({ navigation }) => {
               Log in
             </Button>
           </Layout>
-          <Layout style={{ marginTop: 8, marginBottom: 8 }}>
+          <Layout
+            style={{
+              marginTop: 8,
+              marginBottom: 8,
+              backgroundColor: COLORS.reguar_white,
+            }}>
             <CustomButton
               btnType="LIGHT"
               btnLabel="Sign up"

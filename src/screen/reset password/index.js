@@ -22,6 +22,7 @@ import {
 import * as yup from 'yup';
 import { Formik } from 'formik';
 import CustomInputs from '../../components/inputs';
+import COLORS from '../../assets/theme/colors';
 
 const ResetPassword = ({ navigation }) => {
   const [state, setState] = useState({
@@ -83,9 +84,10 @@ const ResetPassword = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Layout>
-        <TopNavigation accessoryLeft={BackAction} />
-      </Layout>
+      <TopNavigation
+        accessoryLeft={BackAction}
+        style={styles.topNavigationStyles}
+      />
       <Layout style={styles.bodyContentContainer}>
         <ScrollView style={styles.scrollView}>
           <Layout style={styles.textContainer}>
@@ -169,7 +171,11 @@ const ResetPassword = ({ navigation }) => {
                       }
                     />
                   </Layout>
-                  <Layout style={{ marginTop: 15 }}>
+                  <Layout
+                    style={{
+                      marginTop: 15,
+                      backgroundColor: COLORS.reguar_white,
+                    }}>
                     <Button
                       appearance="filled"
                       status="primary"

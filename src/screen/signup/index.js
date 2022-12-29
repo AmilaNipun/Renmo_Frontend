@@ -27,6 +27,7 @@ import {
 import CustomInputs from '../../components/inputs';
 import CustomButton from '../../components/buttons';
 import ASSETS from '../../assets/theme/assets';
+import COLORS from '../../assets/theme/colors';
 
 const Signup = ({ navigation }) => {
   const [state, setState] = useState({
@@ -64,9 +65,10 @@ const Signup = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Layout>
-        <TopNavigation accessoryLeft={BackAction} />
-      </Layout>
+      <TopNavigation
+        accessoryLeft={BackAction}
+        style={styles.topNavigationStyles}
+      />
       <Layout style={styles.bodyContentContainer}>
         <ScrollView style={styles.scrollView}>
           <Layout style={styles.textContainer}>
@@ -109,7 +111,11 @@ const Signup = ({ navigation }) => {
                       }
                     />
                   </Layout>
-                  <Layout style={{ marginTop: 10 }}>
+                  <Layout
+                    style={{
+                      marginTop: 10,
+                      backgroundColor: COLORS.reguar_white,
+                    }}>
                     <CustomInputs
                       label="Password"
                       inputType="PRIMARY"
@@ -132,7 +138,11 @@ const Signup = ({ navigation }) => {
                     />
                   </Layout>
 
-                  <Layout style={{ marginTop: 10 }}>
+                  <Layout
+                    style={{
+                      marginTop: 10,
+                      backgroundColor: COLORS.reguar_white,
+                    }}>
                     <CustomInputs
                       label="Phone Number"
                       inputType="PRIMARY"
@@ -152,7 +162,11 @@ const Signup = ({ navigation }) => {
                     />
                   </Layout>
 
-                  <Layout style={{ marginTop: 15 }}>
+                  <Layout
+                    style={{
+                      marginTop: 15,
+                      backgroundColor: COLORS.reguar_white,
+                    }}>
                     <Button
                       appearance="filled"
                       status="primary"
@@ -165,7 +179,8 @@ const Signup = ({ navigation }) => {
                 </>
               )}
             </Formik>
-            <Layout style={{ marginTop: 35 }}>
+            <Layout
+              style={{ marginTop: 35, backgroundColor: COLORS.reguar_white }}>
               <Divider style={styles.divider} />
               <View style={styles.mainContainerBox}>
                 <View style={styles.containerBox}>
@@ -174,7 +189,10 @@ const Signup = ({ navigation }) => {
               </View>
             </Layout>
             <Layout style={styles.buttonContainer}>
-              <Layout>
+              <Layout
+                style={{
+                  backgroundColor: COLORS.reguar_white,
+                }}>
                 <CustomButton
                   btnType="DARK"
                   btnLabel="Sign in with Apple"
@@ -182,7 +200,12 @@ const Signup = ({ navigation }) => {
                 // onPress={() => navigation.navigate('Signup')}
                 />
               </Layout>
-              <Layout style={{ marginTop: 8, marginBottom: 8 }}>
+              <Layout
+                style={{
+                  marginTop: 8,
+                  marginBottom: 8,
+                  backgroundColor: COLORS.reguar_white,
+                }}>
                 <CustomButton
                   btnType="LIGHT"
                   btnLabel="Sign in with Google"

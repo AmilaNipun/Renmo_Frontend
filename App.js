@@ -21,6 +21,7 @@ import ForgotPassword from './src/screen/forgot password';
 import Verification from './src/screen/verification';
 import ResetPassword from './src/screen/reset password';
 import AppMainContainer from './src/screen/app screens/app main container';
+import COLORS from './src/assets/theme/colors';
 
 const Stack = createNativeStackNavigator();
 
@@ -33,7 +34,10 @@ const App = () => {
         theme={{ ...eva.light, ...theme }}
         customMapping={mapping}>
         <NavigationContainer>
-          <StatusBar backgroundColor="#ffffff" barStyle="light-content" />
+          <StatusBar
+            backgroundColor={COLORS.reguar_white}
+            barStyle="light-content"
+          />
           <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen name="Starter" component={Starter} />
             <Stack.Screen name="OnboardingScreen" component={Onboarding} />

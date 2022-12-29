@@ -14,6 +14,7 @@ import {
 import * as yup from 'yup';
 import { Formik } from 'formik';
 import CustomInputs from '../../components/inputs';
+import COLORS from '../../assets/theme/colors';
 
 const Verification = ({ navigation, props }) => {
   //states
@@ -70,9 +71,10 @@ const Verification = ({ navigation, props }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Layout>
-        <TopNavigation accessoryLeft={BackAction} />
-      </Layout>
+      <TopNavigation
+        accessoryLeft={BackAction}
+        style={styles.topNavigationStyles}
+      />
       <Layout style={styles.bodyContentContainer}>
         <ScrollView style={styles.scrollView}>
           <Layout style={styles.textContainer}>
@@ -169,14 +171,16 @@ const Verification = ({ navigation, props }) => {
                 />
               </View>
             </Layout>
-            <Layout style={{ marginTop: 25 }}>
+            <Layout
+              style={{ marginTop: 25, backgroundColor: COLORS.reguar_white }}>
               {!isValid && (
                 <Text style={styles.errorMsg} status="danger">
                   Invalid OTP
                 </Text>
               )}
             </Layout>
-            <Layout style={{ marginTop: 25 }}>
+            <Layout
+              style={{ marginTop: 25, backgroundColor: COLORS.reguar_white }}>
               <Button
                 appearance="filled"
                 status="primary"

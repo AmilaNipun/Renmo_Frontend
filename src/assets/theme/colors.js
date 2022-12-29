@@ -5,6 +5,7 @@ const COLORS = {
   light_grey: '#9BA4B4',
   sky_blue: '#F1F6F9',
   white: '#FFFFFF',
+  reguar_white: '#f6f6f6',
   neutral_grey: '#475569',
   highlight_grey: '#E3E3E7',
 };

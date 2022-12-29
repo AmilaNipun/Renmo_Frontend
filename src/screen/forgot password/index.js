@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, { useState } from 'react';
 import styles from './forgot-password-styles';
 import { SafeAreaView, ScrollView } from 'react-native';
@@ -12,6 +13,7 @@ import {
 import * as yup from 'yup';
 import { Formik } from 'formik';
 import CustomInputs from '../../components/inputs';
+import COLORS from '../../assets/theme/colors';
 
 const ForgotPassword = ({ navigation }) => {
   const [state, setState] = useState({
@@ -37,9 +39,10 @@ const ForgotPassword = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Layout>
-        <TopNavigation accessoryLeft={BackAction} />
-      </Layout>
+      <TopNavigation
+        accessoryLeft={BackAction}
+        style={styles.topNavigationStyles}
+      />
       <Layout style={styles.bodyContentContainer}>
         <ScrollView style={styles.scrollView}>
           <Layout style={styles.textContainer}>
@@ -83,7 +86,11 @@ const ForgotPassword = ({ navigation }) => {
                       }
                     />
                   </Layout>
-                  <Layout style={{ marginTop: 15 }}>
+                  <Layout
+                    style={{
+                      marginTop: 15,
+                      backgroundColor: COLORS.reguar_white,
+                    }}>
                     <Button
                       appearance="filled"
                       status="primary"

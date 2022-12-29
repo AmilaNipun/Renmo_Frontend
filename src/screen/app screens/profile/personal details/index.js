@@ -17,6 +17,7 @@ import {
 import * as yup from 'yup';
 import { Formik } from 'formik';
 import CustomInputs from '../../../../components/inputs';
+import COLORS from '../../../../assets/theme/colors';
 
 const PersonalDetails = (props) => {
 
@@ -55,7 +56,7 @@ const PersonalDetails = (props) => {
                         values,
                     }) => (
                         <>
-                            <Layout style={{ marginTop: 10 }}>
+                            <Layout style={{ marginTop: 10, backgroundColor: COLORS.reguar_white, }}>
                                 <CustomInputs
                                     label="User Name"
                                     inputType="PRIMARY"

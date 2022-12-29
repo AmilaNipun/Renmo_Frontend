@@ -11,7 +11,10 @@ const styles = StyleSheet.create({
     },
     container: {
         flex: 1,
-        backgroundColor: COLORS.white,
+        backgroundColor: COLORS.reguar_white,
+    },
+    topNavigationStyles: {
+        backgroundColor: COLORS.reguar_white,
     },
     bodyContentContainer: {
         flex: 1,
@@ -19,6 +22,7 @@ const styles = StyleSheet.create({
         alignContent: 'center',
         flexDirection: 'column',
         paddingTop: StatusBar.currentHeight,
+        backgroundColor: COLORS.reguar_white,
     },
     scrollView: {
         marginHorizontal: 15,
@@ -26,10 +30,12 @@ const styles = StyleSheet.create({
     textContainer: {
         flex: 1,
         flexDirection: 'column',
+        backgroundColor: COLORS.reguar_white,
     },
     formContainer: {
         flex: 1,
         marginTop: 40,
+        backgroundColor: COLORS.reguar_white,
     },
     app_sub_title: {
         textAlign: 'left',
@@ -42,6 +48,7 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         flexWrap: 'wrap',
+        backgroundColor: COLORS.reguar_white,
     },
     otp_email: {
         color: '#1A1E25',
@@ -56,6 +63,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-evenly',
         alignItems: 'center',
         flexDirection: 'row',
+        backgroundColor: COLORS.reguar_white,
     },
     otpBox: {
         borderRadius: 10,

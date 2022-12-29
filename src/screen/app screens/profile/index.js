@@ -118,6 +118,7 @@ const ProfileScreen = ({ navigation }) => {
                                     title={() => <Text category="s1" style={styles.selectedTitle}>Switch To Hosting</Text>}
                                     accessoryLeft={ToggleLeftIconFillEva}
                                     accessoryRight={IosForwardIconEva}
+                                    style={styles.drawerItem}
                                 />
                             </Layout>
                         </>

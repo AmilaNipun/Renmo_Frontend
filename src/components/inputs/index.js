@@ -5,7 +5,12 @@ import styles from './input-styles';
 const CustomInputs = props => {
   return (
     <>
-      <Layout>
+      <Layout
+        style={
+          props.inputBackground === 'light'
+            ? styles.lightBackground
+            : styles.thickBackground
+        }>
         <Input
           label={props.label}
           onFocus={props.onFocus}
@@ -53,4 +58,5 @@ CustomInputs.defaultProps = {
   classLabel: 'defaultLabel',
   classType: 'defaultTextBox',
   type: 'default',
+  inputBackground: 'light',
 };
