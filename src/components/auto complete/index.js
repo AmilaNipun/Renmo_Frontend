@@ -1,8 +1,17 @@
 import React from 'react';
-import { Layout, Text, Input } from '@ui-kitten/components';
-import styles from './input-styles';
+import {
+  Layout,
+  Text,
+  Autocomplete,
+  AutocompleteItem,
+} from '@ui-kitten/components';
+import styles from './auto-complete-styles';
 
-const CustomInputs = props => {
+const CustomAutoComplete = props => {
+  const renderOption = (item, index) => (
+    <AutocompleteItem key={index} title={item.label} />
+  );
+
   return (
     <>
       <Layout
@@ -11,7 +20,8 @@ const CustomInputs = props => {
             ? styles.lightBackground
             : styles.thickBackground
         }>
-        <Input
+        <Autocomplete
+          onSelect={props.onSelect}
           label={props.label}
           onFocus={props.onFocus}
           placeholder={props.placeholder}
@@ -38,8 +48,9 @@ const CustomInputs = props => {
               : props.inputType === 'SECONDARY'
                 ? styles.textInputSecondary
                 : null
-          }
-        />
+          }>
+          {props.items.map(renderOption)}
+        </Autocomplete>
 
         {props.errorMessage && (
           <Text style={styles.errorMsg} status="danger">
@@ -51,10 +62,10 @@ const CustomInputs = props => {
   );
 };
 
-export default CustomInputs;
+export default CustomAutoComplete;
 
 // Set default props
-CustomInputs.defaultProps = {
+CustomAutoComplete.defaultProps = {
   inputBackground: 'light',
   inputType: 'PRIMARY',
 };

@@ -34,74 +34,56 @@ const styles = StyleSheet.create({
     paddingTop: StatusBar.currentHeight,
     backgroundColor: COLORS.reguar_white,
   },
-  scrollView: {
-    marginHorizontal: 15,
-  },
-  textContainer: {
-    flex: 1,
-    flexDirection: 'column',
-  },
   contentContainer: {
-    flex: 1,
-    alignItems: 'center',
+    paddingHorizontal: 15,
+    paddingVertical: 15,
+    paddingBottom: 80,
   },
-  formContainer: {
-    flex: 1,
+  shadowBox: {
+    backgroundColor: COLORS.white,
+    zIndex: 3,
+    elevation: 3,
+  },
+  headerContainer: {
+    flexDirection: 'row',
+    height: 50,
+    marginHorizontal: 15,
+    marginVertical: 1,
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  saveBtn: {
+    borderRadius: 50,
+    paddingVertical: 1,
+    height: 15,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  cancelBtn: {
+    borderRadius: 50,
+    paddingVertical: 1,
+    height: 15,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  btnText: {
+    lineHeight: 1,
+    textAlignVertical: 'center',
+    marginBottom: 3,
   },
   bottomSheetStyles: {
-    shadowColor: "#000",
+    shadowColor: '#000',
     shadowOffset: {
       width: 0,
       height: 12,
     },
     shadowOpacity: 0.58,
-    shadowRadius: 16.00,
-
+    shadowRadius: 16.0,
     elevation: 24,
   },
-  app_sub_title: {
-    textAlign: 'left',
-    paddingBottom: 8,
-  },
-  app_sub_details: {
-    color: COLORS.nav_grey,
-    textAlign: 'left',
-  },
-  primaryBtnStyle: {
-    borderRadius: 30,
-  },
-  captionText: {
-    fontSize: 12,
-    color: '#8F9BB3',
-  },
-  captionContainer: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  mainContainerBox: {
-    marginTop: -18,
-  },
-  containerBox: {
-    backgroundColor: '#394867',
-    alignSelf: 'center',
-    paddingHorizontal: 22,
-    paddingVertical: 8,
-    borderRadius: 20,
-  },
-  containerBoxLabel: {
-    flexShrink: 1,
-    color: COLORS.sky_blue,
-    fontFamily: 'SF-Pro-Display-Bold',
-    fontWeight: '900',
-    textAlign: 'center',
-  },
-  buttonContainer: {
-    marginTop: 20,
+  formContainer: {
     flex: 1,
-    flexDirection: 'column',
-    alignContent: 'center',
-    justifyContent: 'flex-start',
+    paddingHorizontal: 15,
   },
 });
 
